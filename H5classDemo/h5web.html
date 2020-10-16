@@ -30,9 +30,9 @@
     </header>
     <section class="banner">
         <ul>
-            <li><img class="banner-active" src="img/flower.jpg" alt=""></li>
-            <li><img class="banner-left" src="img/hello.jpeg" alt=""></li>
-            <li><img class="banner-right" src="img/sleep.jpg" alt=""></li>
+            <li class="active"><img src="img/flower.jpg" alt=""></li>
+            <li class="left"><img src="img/hello.jpeg" alt=""></li>
+            <li class="right"><img src="img/sleep.jpg" alt=""></li>
         </ul>
     </section>
     <section class="main">
@@ -74,5 +74,24 @@
         
 
     </footer>
+
+    <!-- A little bonus ;) -->
+    <script type="text/javascript">
+        var banner = document.getElementsByClassName("banner")[0].getElementsByTagName("li");
+
+        for (var i = 0; i < banner.length; i++) {
+            banner[i].addEventListener("click", function() {
+                if (!this.classList.contains("active")) {
+                    var bannerActive = document.getElementsByClassName("active")[0];
+                    bannerActive.classList.remove("active");
+                    bannerActive.classList.add(this.classList.item(0));
+
+                    this.classList.remove("left");
+                    this.classList.remove("right");
+                    this.classList.add("active");
+                }
+            });
+        }
+    </script>
 </body>
 </html>
